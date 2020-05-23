@@ -1,10 +1,12 @@
 <template>
   <main>
-    <h1>{{ show.title }}</h1>
+    <header id="title">
+      <h1>{{ show.title }}</h1>
+      <div class="genres">
+        <Genre v-for="genre in show.genres" :key="genre" :name="genre" />
+      </div>
+    </header>
     <img :src="show.images.banner.large" alt="" />
-    <div class="genres">
-      <Genre v-for="genre in show.genres" :key="genre" :name="genre" />
-    </div>
     <ul>
       <li>Création: {{show.creation}}</li>
       <li>Réalisateur: {{show.showrunner}}</li>
@@ -13,14 +15,17 @@
 
     <nuxt-content :document="show" />
 
-    <nuxt-link
-      v-if="prev"
-      :to="{ name: 'slug', params: { slug: prev.slug } }"
-    >&lt; {{ prev.title }}</nuxt-link>&nbsp;|
-    <nuxt-link
-      v-if="next"
-      :to="{ name: 'slug', params: { slug: next.slug } }"
-    >{{ next.title }} &gt;</nuxt-link>
+    <footer>
+      <span><nuxt-link
+        v-if="prev"
+        :to="{ name: 'slug', params: { slug: prev.slug } }"
+      >&lt; {{ prev.title }}</nuxt-link></span>
+      |
+      <span><nuxt-link
+        v-if="next"
+        :to="{ name: 'slug', params: { slug: next.slug } }"
+      >{{ next.title }} &gt;</nuxt-link></span>
+    </footer>
   </main>
 </template>
 
@@ -51,14 +56,35 @@ export default {
 </script>
 
 <style>
+header#title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header#title .genres {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+}
 img {
   width: 100%;
   max-width: 1400px;
   display: flex;
   margin: auto;
 }
-.genres {
+ul {
   display: flex;
-  justify-content: center;
+  list-style-type: none;
+  justify-content: space-evenly;
+}
+footer {
+  border-top: 1px solid #e2e8f0;
+  padding: 1rem;
+  margin: -1rem;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 0 8px rgba(0,0,0,.101562);
 }
 </style>
