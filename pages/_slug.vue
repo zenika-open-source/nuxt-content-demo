@@ -42,7 +42,7 @@ export default {
 
     const [prev, next] = await $content('shows')
       .only(['title', 'slug'])
-      .sortBy('date', 'desc')
+      .sortBy('creation', 'desc')
       .surround(params.slug)
       .fetch()
 

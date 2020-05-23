@@ -27,7 +27,7 @@ export default {
     const q = route.query.q
 
     let query = $content('shows')
-      .sortBy('date', 'desc')
+      .sortBy('creation', 'desc')
 
     if (q) {
       query = query.search('title', q)
