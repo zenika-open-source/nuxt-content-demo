@@ -1,19 +1,19 @@
 <template>
   <main>
-    <h1>Démo de @nuxt/content</h1>
+    <h1>Mes séries</h1>
 
     <label>Chercher une série <input id="search" v-model="q" placeholder="Breaking Bad..." /></label>
 
     <div id="shows">
-      <article v-for="article in articles" :key="article.slug">
+      <article v-for="show in shows" :key="show.slug">
         <nuxt-link
-          :to="{ name: 'slug', params: { slug: article.slug } }"
+          :to="{ name: 'slug', params: { slug: show.slug } }"
         >
-          <h2>{{ article.title }}</h2>
-          <img :src="article.images.poster" />
+          <h2>{{ show.title }}</h2>
+          <img :src="show.images.poster" />
         </nuxt-link>
         <div class="genres">
-          <Genre v-for="genre in article.genres" :key="genre" :name="genre" />
+          <Genre v-for="genre in show.genres" :key="genre" :name="genre" />
         </div>
       </article>
     </div>
@@ -26,18 +26,18 @@ export default {
   async asyncData ({ $content, route }) {
     const q = route.query.q
 
-    let query = $content('articles')
+    let query = $content('shows')
       .sortBy('date', 'desc')
 
     if (q) {
       query = query.search('title', q)
     }
 
-    const articles = await query.fetch()
+    const shows = await query.fetch()
 
     return {
       q,
-      articles
+      shows
     }
   },
   watch: {
