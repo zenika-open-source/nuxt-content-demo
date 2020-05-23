@@ -1,0 +1,14 @@
+{
+  "name": "nuxt-content-demo",
+  "version": "1.0.0",
+  "description": "Démo d'utilisation de @nuxt/content",
+  "license": "MIT",
+  "scripts": {
+    "start": "nuxt dev",
+    "build": "nuxt generate"
+  },
+  "devDependencies": {
+    "@nuxt/content": "1.0.0",
+    "nuxt-edge": "2.13.0-26503223.f13b3752"
+  }
+}
