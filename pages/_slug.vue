@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <nuxt-link to="/">Articles</nuxt-link>
-    <h2>{{ article.title }}</h2>
+  <main>
+    <h1>{{ article.title }}</h1>
     <p>{{ article.description }}</p>
     <nuxt-content :document="article" />
     <nuxt-link
@@ -12,7 +11,7 @@
       v-if="next"
       :to="{ name: 'slug', params: { slug: next.slug } }"
     >{{ next.title }} &gt;</nuxt-link>
-  </div>
+  </main>
 </template>
 
 <script>

@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <nuxt-link to="/">Home</nuxt-link>
-    <h2>Nuxt.js Blog</h2>
+  <main>
+    <h1>Démo de @nuxt/content</h1>
 
     <input id="search" v-model="q" placeholder="Search..." />
-    <Hello name="Yann" />
 
-    <ul>
-      <li v-for="article in articles" :key="article.slug">
-        <nuxt-link
-          :to="{ name: 'slug', params: { slug: article.slug } }"
-        >{{ article.title }}</nuxt-link>
-      </li>
-    </ul>
-  </div>
+    <article v-for="article in articles" :key="article.slug">
+      <nuxt-link
+        :to="{ name: 'slug', params: { slug: article.slug } }"
+      >
+        {{ article.title }}
+      </nuxt-link>
+    </article>
+  </main>
 </template>
 
 <script>
@@ -43,3 +41,11 @@ export default {
   }
 }
 </script>
+
+<style>
+input {
+  margin: 0rem 2rem 2rem 2rem;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+</style>
