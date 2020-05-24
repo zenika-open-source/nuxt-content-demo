@@ -2,15 +2,21 @@
   <main>
     <h1>Démo de @nuxt/content</h1>
 
-    <input id="search" v-model="q" placeholder="Search..." />
+    <label>Chercher une série <input id="search" v-model="q" placeholder="Breaking Bad..." /></label>
 
-    <article v-for="article in articles" :key="article.slug">
-      <nuxt-link
-        :to="{ name: 'slug', params: { slug: article.slug } }"
-      >
-        {{ article.title }}
-      </nuxt-link>
-    </article>
+    <div id="shows">
+      <article v-for="article in articles" :key="article.slug">
+        <nuxt-link
+          :to="{ name: 'slug', params: { slug: article.slug } }"
+        >
+          <h2>{{ article.title }}</h2>
+          <img :src="article.images.poster" />
+        </nuxt-link>
+        <div class="genres">
+          <Genre v-for="genre in article.genres" :key="genre" :name="genre" />
+        </div>
+      </article>
+    </div>
   </main>
 </template>
 
@@ -43,9 +49,44 @@ export default {
 </script>
 
 <style>
-input {
+label {
   margin: 0rem 2rem 2rem 2rem;
   font-size: 1.5rem;
+}
+input {
+  font-size: 1.5rem;
   padding: 0.5rem;
+}
+#shows {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+article {
+  background-color: rgb(248,250,252);
+  max-width: 270px;
+  margin: 1rem;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 8px rgba(0,0,0,.101562);
+  padding: 0.4rem 0;
+  height: 100%;
+}
+article a {
+  text-decoration: none;
+}
+article h2 {
+  margin: 0;
+}
+article img {
+  margin: 0.3rem 0;
+  max-width: 270px;
+}
+article .genres {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 0.9rem;
 }
 </style>

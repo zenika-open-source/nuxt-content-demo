@@ -5,6 +5,18 @@
   </div>
 </template>
 
+<script>
+export default {
+  head() {
+    return {
+      meta: [
+        { hid: 'viewport', name: 'viewport', content: 'width=device-width' }
+      ]
+    }
+  }
+}
+</script>
+
 <style>
 @import url(https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap);
 
@@ -25,5 +37,13 @@ main {
   font-size: 1.1rem;
   font-weight: 500;
   line-height: 1.5;
+}
+blockquote {
+  border-left: 4px solid #e2e8f0;
+  padding: 0.5rem 1rem;
+  margin-left: 0;
+}
+blockquote p {
+  margin: 0;
 }
 </style>

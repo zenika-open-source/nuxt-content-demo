@@ -1,8 +1,18 @@
 <template>
   <main>
     <h1>{{ article.title }}</h1>
-    <p>{{ article.description }}</p>
+    <img :src="article.images.banner.large" alt="" />
+    <div class="genres">
+      <Genre v-for="genre in article.genres" :key="genre" :name="genre" />
+    </div>
+    <ul>
+      <li>Création: {{article.creation}}</li>
+      <li>Réalisateur: {{article.showrunner}}</li>
+      <li>Statut: {{article.status}}</li>
+    </ul>
+
     <nuxt-content :document="article" />
+
     <nuxt-link
       v-if="prev"
       :to="{ name: 'slug', params: { slug: prev.slug } }"
@@ -39,3 +49,16 @@ export default {
   }
 }
 </script>
+
+<style>
+img {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  margin: auto;
+}
+.genres {
+  display: flex;
+  justify-content: center;
+}
+</style>
