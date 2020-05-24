@@ -10,7 +10,7 @@
           :to="{ name: 'slug', params: { slug: show.slug } }"
         >
           <h2>{{ show.title }}</h2>
-          <img :src="show.images.poster" />
+          <img :src="show.images.poster" width="270" height="397" />
         </nuxt-link>
         <div class="genres">
           <Genre v-for="genre in show.genres" :key="genre" :name="genre" />
@@ -81,7 +81,9 @@ article h2 {
 }
 article img {
   margin: 0.3rem 0;
+  background: #ddd;
   max-width: 270px;
+  height: auto;
 }
 article .genres {
   display: flex;

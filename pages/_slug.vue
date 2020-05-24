@@ -6,7 +6,7 @@
         <Genre v-for="genre in show.genres" :key="genre" :name="genre" />
       </div>
     </header>
-    <img :src="show.images.banner.large" alt="" />
+    <img :src="show.images.banner.large" width="1920" height="784" alt="" />
     <ul>
       <li>Création: {{show.creation}}</li>
       <li>Réalisateur: {{show.showrunner}}</li>
@@ -68,8 +68,10 @@ header#title .genres {
   height: 100%;
 }
 img {
+  background: #ddd;
   width: 100%;
   max-width: 1400px;
+  height: auto;
   display: flex;
   margin: auto;
 }
