@@ -10,7 +10,7 @@
           :to="{ name: 'slug', params: { slug: show.slug } }"
         >
           <h2>{{ show.title }}</h2>
-          <img :src="show.images.poster" width="270" height="397" />
+          <img :src="show.images.poster" width="270" height="397" alt="" />
         </nuxt-link>
         <div class="genres">
           <Genre v-for="genre in show.genres" :key="genre" :name="genre" />
