@@ -8,7 +8,7 @@
     "build": "nuxt generate"
   },
   "devDependencies": {
-    "@nuxt/content": "1.0.0",
+    "@nuxt/content": "1.5.0",
     "nuxt": "2.14.0"
   }
 }
