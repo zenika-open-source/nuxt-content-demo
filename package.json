@@ -9,6 +9,6 @@
   },
   "devDependencies": {
     "@nuxt/content": "1.0.0",
-    "nuxt-edge": "2.13.0-26503223.f13b3752"
+    "nuxt": "2.14.0"
   }
 }
